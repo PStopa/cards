@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: cards
+  profiles:
+    active: production
+  datasource:
+    url: ${cards.datasource.url}
+    username: ${cards.datasource.username}
+    password: ${cards.datasource.password}
+# ACTUATOR INFO
+info:
+  app:
+    name: "Cards"
+    version: "0.0.1"
+    profile: ${spring.profiles.active}
+  serverInfo:
+    port: ${server.port}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+eureka:
+  client: ${eureka-client}
+server:
+  port: 9997
